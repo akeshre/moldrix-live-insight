@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLiveData } from '@/hooks/useLiveData';
 import { Header } from '@/components/Dashboard/Header';
 import { GlobalKPIs } from '@/components/Dashboard/GlobalKPIs';
@@ -7,6 +8,7 @@ import { ControlPanel } from '@/components/Dashboard/ControlPanel';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
+  const navigate = useNavigate();
   const { globalData, plantsData, currentTime } = useLiveData();
   const [isAutoRefresh, setIsAutoRefresh] = useState(true);
   const [refreshInterval, setRefreshInterval] = useState('3s');
@@ -15,10 +17,7 @@ const Index = () => {
   const totalAlerts = globalData.criticalAlerts + globalData.warningAlerts;
 
   const handleEnterPlant = (plantId: string) => {
-    toast({
-      title: "Entering Plant",
-      description: `Navigating to ${plantId} plant dashboard...`,
-    });
+    navigate(`/plant/${plantId}`);
   };
 
   const handleViewReports = (plantId: string) => {

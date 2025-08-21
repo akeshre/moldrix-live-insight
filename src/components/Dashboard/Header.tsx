@@ -1,4 +1,5 @@
 import { Clock, Bell, Plus, Globe, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -9,6 +10,8 @@ interface HeaderProps {
 }
 
 export function Header({ currentTime, alertCount }: HeaderProps) {
+  const navigate = useNavigate();
+  
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString('en-IN', {
       hour12: false,
@@ -78,7 +81,12 @@ export function Header({ currentTime, alertCount }: HeaderProps) {
             )}
           </Button>
           
-          <Button variant="default" size="sm" className="hover-lift">
+          <Button 
+            variant="default" 
+            size="sm" 
+            className="hover-lift"
+            onClick={() => navigate('/add-plant')}
+          >
             <Plus className="w-4 h-4 mr-1" />
             Add Plant
           </Button>
