@@ -2,95 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* MoldRix™ Dynamic Manufacturing Dashboard Design System */
 @layer base {
   :root {
+    /* Light Mode - Office Environment */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --foreground: 217 33% 17%;
+    
+    --card: 248 100% 99%;
+    --card-foreground: 217 33% 17%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --popover-foreground: 217 33% 17%;
+    
+    --primary: 214 83% 58%; /* Professional Blue #2563EB */
+    --primary-foreground: 0 0% 100%;
+    
+    --success: 158 80% 40%; /* Fresh Green #059669 */
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 24 87% 47%; /* Warm Orange #EA580C */
+    --warning-foreground: 0 0% 100%;
+    
+    --danger: 4 73% 48%; /* Clear Red #DC2626 */
+    --danger-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 217 33% 17%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 210 40% 96%;
+    --accent-foreground: 217 33% 17%;
+    
+    --destructive: 4 73% 48%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 83% 58%;
+    
+    --radius: 0.75rem;
+    
+    /* Manufacturing specific colors */
+    --status-running: 142 76% 36%; /* Green */
+    --status-warning: 45 93% 47%; /* Yellow */
+    --status-critical: 0 84% 60%; /* Red */
+    --status-maintenance: 214 83% 58%; /* Blue */
+    --status-idle: 215 16% 47%; /* Gray */
+    
+    /* Glass effects */
+    --glass-light: rgba(248, 250, 252, 0.9);
+    --glass-border: rgba(226, 232, 240, 0.8);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 83% 58%), hsl(221 83% 53%));
+    --gradient-success: linear-gradient(135deg, hsl(158 80% 40%), hsl(166 80% 35%));
+    --gradient-dashboard: linear-gradient(180deg, hsl(0 0% 100%), hsl(216 33% 97%));
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Dark Mode - Factory Floor Optimized */
+    --background: 222 84% 5%; /* Dark Navy #0F172A */
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    
+    --card: 217 33% 11%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    
+    --popover: 222 84% 5%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    
+    --primary: 217 91% 60%; /* Electric Blue #0066FF */
+    --primary-foreground: 0 0% 100%;
+    
+    --success: 158 79% 41%; /* Vibrant Green #00D084 */
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 45 100% 51%; /* Bright Amber #FFB800 */
+    --warning-foreground: 222 84% 5%;
+    
+    --danger: 355 78% 63%; /* Bold Red #FF4757 */
+    --danger-foreground: 0 0% 100%;
+    
+    --secondary: 217 33% 18%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
+    
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 217 33% 18%;
     --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --destructive: 355 78% 63%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 217 91% 60%;
+    
+    /* Manufacturing specific colors - Dark Mode */
+    --status-running: 142 69% 58%; /* Bright Green */
+    --status-warning: 45 100% 51%; /* Bright Yellow */
+    --status-critical: 355 78% 63%; /* Bright Red */
+    --status-maintenance: 217 91% 60%; /* Electric Blue */
+    --status-idle: 215 20% 65%; /* Light Gray */
+    
+    /* Glass effects - Dark Mode */
+    --glass-light: rgba(30, 41, 59, 0.8);
+    --glass-border: rgba(51, 65, 85, 0.6);
+    
+    /* Gradients - Dark Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(226 71% 40%));
+    --gradient-success: linear-gradient(135deg, hsl(158 79% 41%), hsl(166 79% 36%));
+    --gradient-dashboard: linear-gradient(180deg, hsl(222 84% 5%), hsl(217 33% 8%));
   }
 }
 
@@ -100,6 +125,97 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-b from-background to-background text-foreground transition-all duration-300;
+    background-image: var(--gradient-dashboard);
   }
+  
+  html {
+    transition: all 300ms ease;
+  }
+}
+
+@layer components {
+  /* Glass morphism effects */
+  .glass {
+    background: var(--glass-light);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Status indicators */
+  .status-running { @apply bg-status-running text-white; }
+  .status-warning { @apply bg-status-warning text-white; }
+  .status-critical { @apply bg-status-critical text-white; }
+  .status-maintenance { @apply bg-status-maintenance text-white; }
+  .status-idle { @apply bg-status-idle text-white; }
+  
+  /* Animations */
+  .animate-pulse-soft {
+    animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+  }
+  
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px hsl(var(--primary) / 0.3);
+  }
+  
+  /* Live indicators */
+  .live-indicator {
+    position: relative;
+  }
+  
+  .live-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--success));
+    border-radius: 50%;
+    animation: pulse-dot 1.5s infinite;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
 }
